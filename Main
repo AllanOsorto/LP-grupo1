@@ -1,1 +1,2 @@
 <numero> = <digito>|<numero><digito>
+<decimal> = <punto><digito>|<decimal><punto><digito>
