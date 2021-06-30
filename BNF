@@ -1,42 +1,54 @@
 <Programa> ::= <ListaDeFunciones>
 
-<ListaFunciones> ::= <Funcion>|<ListaFunciones><Funcion>
-
 <Funcion> ::= FUNC<Variable>(<ListaParametros>)<Sentencia>
-
-<ListaParametros> ::= <ListaVariables> | epsilon
-
-<ListaVariables> ::= <Variable>|<ListaVariables>,<Variable>
 
 <Variable> ::= <Letra>|<Variable><Alfanumerico>
 
-<Sentencia> ::= <SentenciaAsignacion>|<SentenciaRetorno>|SentenciaNula|SentenciaCondicional|SenteciaWhile|<Bloque>
-
-<SentenciaAsignacion> ::= <Variable> '=' <Expresion>
-
 <Expresion> ::= <Expresion><OperadorBinario><Expresion>|(<Expresion>)|<Entero>|<Variable>|<Variable>(<ListaArgumentos>)
 
+<Declaracion> ::= VAR<ListaVariable>
+
+<Bloque> ::= {<ListaDeclaracion><ListaSentencia>}
+
+//****************************************************************************************************************
+//Sentencias
+//****************************************************************************************************************
+
+<Sentencia> ::= <SentenciaAsignacion>|<SentenciaRetorno>|SentenciaNula|SentenciaCondicional|SenteciaWhile|<Bloque>
+<SentenciaAsignacion> ::= <Variable> '=' <Expresion>
+<SentenciaRetorno> ::= RETURN <Expresion>
+<SentenciaNula> ::= CONTINUE
+<SentenciaCondicional> ::= IF<Expresion>THEN<Sentencia>FIN|IF<Expresion>THEN<Sentencia>ELSE<Sentencia>FIN
+<SentenciaMientras> ::= WHILE<Expresion>DO<Sentencia>DONE
+
+
+//****************************************************************************************************************
+// Listas
+//****************************************************************************************************************
+
+<ListaFunciones> ::= <Funcion>|<ListaFunciones><Funcion>
+<ListaParametros> ::= <ListaVariables> | epsilon
+<ListaVariables> ::= <Variable>|<ListaVariables>,<Variable>
+<ListaExpresion> ::= <Expresion>|<Expresion>,<ListaExpresion>
+<ListaArgumentos> ::= <ListaExpresion> |epsilon
+<ListaDeclaracion> ::= <Declaracion><ListaDeclaracion>| epsilon
+<ListaSentencia> ::= <Sentencia>|<ListaSentencia><Sentencia>
+
+
+//****************************************************************************************************************
+//Comando Basicos
+//****************************************************************************************************************
+
 <Digito> ::= 0|1|...|8|9
-
 <Letra> ::= a|b|...|y|z|A|B|...|Y|Z
-
-<Alfanumerico> ::= <letra>|<digito>
-
 <Entero> ::= <Digito>|<Entero><Digito>
-
-<PuntoDecimal> ::= '.'
-
-<Numero> ::= <Entero>|<Decimal>
-
 <Decimal> ::= <Entero><PuntoDecimal><Entero>|<null>
-
-<Signo> ::= <+>|<Mas>|<->|<Menos>|<null>
-
-<Mas> ::= <+>
-
-<Menos> ::= <->
-
-<String> ::= <Letra>|<String><Letra>
-
+<PuntoDecimal> ::= '.'
+<Numero> ::= <Entero>|<Decimal>
+<Texto> ::= <Letra>|<Texto><Letra>
 <OperadorBinario> ::= +|-|*|/
-
+<Alfanumerico> ::= <letra>|<digito>
+<Signo> ::= <+>|<Mas>|<->|<Menos>|<null>
+<Mas> ::= <+>
+<Menos> ::= <->
+<Salto> ::= \n
