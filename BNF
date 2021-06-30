@@ -1,12 +1,42 @@
-<Digito> ::= 0|1|...|8|9
-<Letra> ::= a|b|...|y|z
-<Alfanumerico> ::= <letra>|<digito>
-<Entero> ::= <Digito>|<Entero><Digito>
-<PuntoDecimal> ::= '.'
-<Numero> ::= <Entero>|<Decimal>
-<Decimal> ::= <Entero><PuntoDecimal><Entero>|<null>
-<Signo> ::= <+>|<Mas>|<->|<Menos>|<null>
-<Mas> ::= <+>
-<Menos> ::= <->
-<String> ::= <Letra>|<String><Letra>
+<Programa> ::= <ListaDeFunciones>
+
+<ListaFunciones> ::= <Funcion>|<ListaFunciones><Funcion>
+
+<Funcion> ::= FUNC<Variable>(<ListaParametros>)<Sentencia>
+
+<ListaParametros> ::= <ListaVariables> | epsilon
+
+<ListaVariables> ::= <Variable>|<ListaVariables>,<Variable>
+
 <Variable> ::= <Letra>|<Variable><Alfanumerico>
+
+<Sentencia> ::= <SentenciaAsignacion>|<SentenciaRetorno>|SentenciaNula|SentenciaCondicional|SenteciaWhile|<Bloque>
+
+<SentenciaAsignacion> ::= <Variable> '=' <Expresion>
+
+<Expresion> ::= <Expresion><OperadorBinario><Expresion>|(<Expresion>)|<Entero>|<Variable>|<Variable>(<ListaArgumentos>)
+
+<Digito> ::= 0|1|...|8|9
+
+<Letra> ::= a|b|...|y|z|A|B|...|Y|Z
+
+<Alfanumerico> ::= <letra>|<digito>
+
+<Entero> ::= <Digito>|<Entero><Digito>
+
+<PuntoDecimal> ::= '.'
+
+<Numero> ::= <Entero>|<Decimal>
+
+<Decimal> ::= <Entero><PuntoDecimal><Entero>|<null>
+
+<Signo> ::= <+>|<Mas>|<->|<Menos>|<null>
+
+<Mas> ::= <+>
+
+<Menos> ::= <->
+
+<String> ::= <Letra>|<String><Letra>
+
+<OperadorBinario> ::= +|-|*|/
+
