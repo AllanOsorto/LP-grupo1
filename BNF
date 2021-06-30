@@ -52,3 +52,6 @@
 <Mas> ::= <+>
 <Menos> ::= <->
 <Salto> ::= \n
+
+
+<PalabrasClave> ::= epsilon|WHILE|IF|ELSE|FIN|DO|DONE|THEN|RETURN|CONTINUE|VAR|FUNC
