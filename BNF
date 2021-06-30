@@ -1,1 +1,4 @@
-<numero> = <digito>|<numero><digito>
+<Digito> ::= 0|1|...|8|9
+<Letra> ::= a|b|...|y|z
+<Alfanumerico> ::= <letra>|<digito>
+<Entero> ::= <Digito>|<Entero><Digito>
