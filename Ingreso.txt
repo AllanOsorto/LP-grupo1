@@ -1,0 +1,3 @@
+Mario y Luigi SuperStar
+FUENTE1 = 2.67 PSI
+FOCO1 = ROJO
