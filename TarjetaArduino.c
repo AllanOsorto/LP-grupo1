@@ -26,6 +26,22 @@ int LOW;
 int ledPin = 13; 	// Pin de salida para el LED
 int inPin = 2; // Pin de entrada (donde está conectado el interruptor)
 
+void setup() {
+   pinMode(ledPin, OUTPUT);
+   pinMode(inPin, INPUT);
+}
+void loop() {
+   if (digitalRead(inPin) == HIGH){	// Si se activa interruptor
+      digitalWrite(ledPin, HIGH);	// Enciende el LED
+      delay(1000); 			// Pause de 1 segundo
+      digitalWrite(ledPin, LOW); 	// Apaga el LED
+      delay(1000); 			// Pausa de 1 segundo
+   }
+}
+
+
+
+
 
 void setup (){// Sistema RGB para la iluminacion de la fuente
 	 pinMode (RGB_RED, OUTPUT);
@@ -49,10 +65,6 @@ digitalWrite(RGB_RED, HIGH);
 delay(espera);
 }
 
-void setup() {
-   pinMode(ledPin, OUTPUT);
-   pinMode(inPin, INPUT);
-}
 
 
 
