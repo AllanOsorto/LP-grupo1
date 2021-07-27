@@ -23,6 +23,8 @@ int valorseguridad;
 int OUTPUT;
 int HIGH;
 int LOW;
+int ledPin = 13; 	// Pin de salida para el LED
+int inPin = 2; // Pin de entrada (donde está conectado el interruptor)
 
 
 void setup (){// Sistema RGB para la iluminacion de la fuente
@@ -47,8 +49,15 @@ digitalWrite(RGB_RED, HIGH);
 delay(espera);
 }
 
+void setup() {
+   pinMode(ledPin, OUTPUT);
+   pinMode(inPin, INPUT);
+}
 
- void Nivel_Agua(){// control del vaciado/llenado de la fuente
+
+
+
+void Nivel_Agua(){// control del vaciado/llenado de la fuente
 	 if(valorseguridad==1){
 
         Detener();
