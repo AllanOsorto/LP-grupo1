@@ -25,27 +25,27 @@ int main()
 {
 	//*****************************************************************************************************************************************************************
 	//Lector de archivos
-	//*****************************************************************************************************************************************************************
-	FILE * flujo = fopen("Ingreso.txt", "rb");
-	if (flujo == NULL){
-		perror("Error en la apertura del archivo");
-		return 1;
-	}
-	
+	//*****************************************************************************************************************************************************************	
+	FILE *archivo;
 	char caracter;
-	/*
-	*%f flotante, %c Caracter y %d Entero
-	*/
-	while (feof(flujo)==0){
-	ch = (caracter = fgetc(flujo));
-		printf("%c", caracter);
-	}
 	
-	fclose(flujo);
-	printf("\n\nSe ha leido el archivo correctamente...");
+	archivo = fopen("Ingreso.txt","r");
+	
+	if (archivo == NULL)
+        {
+            printf("\nError de apertura del archivo. \n\n");
+        }
+        else
+        {
+            printf("\nEl contenido del archivo es \n\n");
+            while((caracter = fgetc(archivo)) != EOF)
+	    {
+		printf("%c",caracter);
+	    }
+        }
+        fclose(archivo);
 	return 0;
-	
-	
+
 	
     p=0;
     printf("please intput string(End with '#'):\n");
