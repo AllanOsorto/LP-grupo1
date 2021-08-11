@@ -16,7 +16,7 @@ int fg;             // marca de cambio
 int num;            // Almacenar valores enteros 
 
 // Matriz de caracteres bidimensionales, almacenando palabras clave 
-char index[6][6]={"PSI","LUMEN","FOCOU","FOCOM","FUENTEU","FUENTEM"};
+char index[6][6]={"IF","WHILE","DO","ELSE","ELSI","PSI"};
 
 // Declaración del método de análisis léxico
 void scaner();  
@@ -46,11 +46,11 @@ int main()
         fclose(archivo);
 	return 0;
 
-	
+	// leer cíclicamente en caracteres
     p=0;
     printf("please intput string(End with '#'):\n");
     
-    // leer cíclicamente en caracteres
+    
     do {
         ch=getchar();
         input[p++] = ch;
